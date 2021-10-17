@@ -1,0 +1,3 @@
+create database tcc;
+use tcc;
+create table sitesfav(nome varchar(30),urls text, img text);
