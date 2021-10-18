@@ -24,56 +24,6 @@
       <p class="header1text">Sites Recomendados</p>
     </center>
   </div>
-  <style>
-    .content {
-      background-color: #2c5ca3;
-      margin: 15% auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 50vw;
-      height: 40vh;
-      border-radius: 6px;
-      border: none;
-      display: block;
-      text-align: center;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgb(0, 0, 0);
-      background-color: rgba(0, 0, 0, 0.4);
-    }
-
-    .modal-header {
-      padding: 2px 16px;
-      background-color: #2c5ca3;
-    }
-
-    .close {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-      color: black;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .center {
-      margin-left: auto;
-      margin-right: auto;
-    }
-  </style>
   <div id="myModal" class="modal">
     <div class="content">
       <div class="modal-header">
@@ -125,38 +75,47 @@
     <center>
       <p class="header1text">Sites Favoritos</p>
     </center>
+    <input type="radio" id="icones" name="visualizacao" value="icones" checked>
+    <label for="icones">Ícones</label>
+    <input type="radio" id="nomes" name="visualizacao" value="nomes">
+    <label for="nomes">Nomes</label>
+    <br>
+    <div class="sitesrec">
 
-
-  </div>
-  <div class="sitesrec">
-    <?php
-    require_once 'conexao.php';
-    $sql = "SELECT nome, urls, img FROM sitesfav;";
-    $result = $con->query($sql);
-
-    if ($result->num_rows > 0) {
-      while ($row = $result->fetch_assoc()) {
-        echo '
-        <a href="' . $row['urls'] . '"><img class="" src="' . $row['img'] . '" alt="Youtube"></a>';
+      <!--Tentando alterar o display-->
+      <?php
+      require_once 'conexao.php';
+      $sql = "SELECT nome, urls, img FROM sitesfav;";
+      $result = $con->query($sql);
+      $display = "icones";
+      if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+          if ($display == "icones") {
+            echo '
+        <a style="text-decoration:none;color:black;" href="' . $row['urls'] . '"><img class="" src="' . $row['img'] . '"></a>';
+          } else if ($display == "nomes") {
+            echo '
+            <a style="text-decoration:none;color:black;" href="' . $row['urls'] . '"> ' . $row['nome'] . '</a>';
+          }
+        }
       }
-    }
-    $con->close();
-    ?>
-  </div>
-  <div class="sidebar" id="barralateral">
-    <button class="botaofechar" onclick="fecharbarra()">X</button>
-    <p class="titulo"> OPÇÕES </p>
-    <ul class="sideopcao">
-      <li><img class="ico" onclick="mudarfundo1()" id="img1" src="imgs/1033462.jpg" alt=""></li>
-      <li><img class="ico" onclick="mudarfundo0()" id="img1" src="imgs/background3840x2160.jpg" alt=""></li>
-      <li><img class="ico" onclick="mudarfundo2()" id="img1" src="imgs/anime_bg.jpg" alt=""></li>
-      <li><img class="ico" onclick="mudarfundo3()" id="img1" src="imgs/bg_2.jpg" alt=""></li>
-      <li><img class="ico" onclick="mudarfundo4()" id="img1" src="https://i0.wp.com/gamelogia.com.br/wp-content/uploads/2016/11/gamer.jpg?resize=1280%2C640&ssl=1" alt=""></li>
-    </ul>
-  </div>
-  <section class="container1" id="extrarea" onclick="fecharbarra()">
-  </section>
-  <script src="java.js"></script>
+      $con->close();
+      ?>
+    </div>
+    <div class="sidebar" id="barralateral">
+      <button class="botaofechar" onclick="fecharbarra()">X</button>
+      <p class="titulo"> OPÇÕES </p>
+      <ul class="sideopcao">
+        <li><img class="ico" onclick="mudarfundo1()" id="img1" src="imgs/1033462.jpg" alt=""></li>
+        <li><img class="ico" onclick="mudarfundo0()" id="img1" src="imgs/background3840x2160.jpg" alt=""></li>
+        <li><img class="ico" onclick="mudarfundo2()" id="img1" src="imgs/anime_bg.jpg" alt=""></li>
+        <li><img class="ico" onclick="mudarfundo3()" id="img1" src="imgs/bg_2.jpg" alt=""></li>
+        <li><img class="ico" onclick="mudarfundo4()" id="img1" src="https://i0.wp.com/gamelogia.com.br/wp-content/uploads/2016/11/gamer.jpg?resize=1280%2C640&ssl=1" alt=""></li>
+      </ul>
+    </div>
+    <section class="container1" id="extrarea" onclick="fecharbarra()">
+    </section>
+    <script src="java.js"></script>
 </body>
 
 </html>
