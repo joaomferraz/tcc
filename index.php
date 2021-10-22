@@ -89,17 +89,17 @@
       <!--Tentando alterar o display-->
       <?php
       require_once 'conexao.php';
-      $sql = "SELECT nome, urls, img FROM sitesfav;";
+      $sql = "SELECT id, nome, urls, img FROM sitesfav;";
       $result = $con->query($sql);
-      $display = "nomes";
+      $display = "icones";
       if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
           if ($display == "icones") {
             echo '
-        <a style="text-decoration:none;color:black;" href="' . $row['urls'] . '"><img class="" src="' . $row['img'] . '"></a>';
+        <a style="text-decoration:none;color:black;" href="' . $row['urls'] . '"><img class="" src="' . $row['img'] . '"></a><a style="text-decoration:none;color:red;" href="delete.php?id=' . $row['id'] . '"><i class="fa fa-minus-square">       </i></a>';
           } else if ($display == "nomes") {
             echo '
-            <a style="text-decoration:none;color:black;" href="' . $row['urls'] . '"> ' . $row['nome'] . ' </a><br><br>';
+            <a style="text-decoration:none;color:black;font-size:30px;" href="' . $row['urls'] . '"> ' . $row['nome'] . ' </a><a style="text-decoration:none;color:red;" href="delete.php?id=' . $row['id'] . '"><i class="fa fa-minus-square"></i></a><br><br>';
           }
         }
       }

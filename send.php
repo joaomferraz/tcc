@@ -2,7 +2,8 @@
 require_once 'conexao.php';
 $nome = $_POST['nomeSite'];
 $urls = $_POST['linkSite'];
-$img = $urls . '/favicon.ico';
+$img = "https://besticon.herokuapp.com/icon?size=120&url=" . $nome . ".com";
+//$img = $urls . '/favicon.ico';
 
 //Outra maneira para pegar o ícone do site
 //$img = "https://besticon.herokuapp.com/icon?size=120&url=" . $nome . ".com";
