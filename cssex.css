@@ -57,6 +57,11 @@
 .sitesrec:hover {
   opacity: 1;
 }
+.botaocad {
+  position: relative;
+  left: 93vw;
+  top: 0vh;
+}
 .botaoside {
   position: relative;
   left: 1vw;
@@ -85,8 +90,9 @@
 .sidebar .botaofechar {
   position: absolute;
   right: 1vw;
-  top: 1vw;
+  top: 1vh;
 }
+
 .sidebar .titulo {
   position: absolute;
   color: white;
@@ -97,16 +103,18 @@
 }
 .sidebar .sideopcao {
   position: absolute;
-  right: 80%;
+  right: 27%;
   top: 15%;
   color: white;
   list-style-type: none;
   transition: 0.5s;
+  display: inline-flex;
 }
 .sidebar .ico {
   width: 50px;
   height: 50px;
   transition: 0.5s;
+  padding-right: 3px;
 }
 .teste {
   float: left;
@@ -122,7 +130,7 @@
   padding: 20px;
   border: 1px solid #888;
   width: 50vw;
-  height: 40vh;
+  height: 35vh;
   border-radius: 6px;
   border: none;
   display: block;

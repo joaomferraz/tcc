@@ -11,8 +11,9 @@
 
 <body id="background" onload='fundoinicial()'>
   <div class="sidecont">
-    <button id="myBtn">Cadastro</button><br>
+
     <button class="botaoside" onclick="abrirbarra()">
+      <button id="myBtn" class="botaocad">Cadastro</button>
       </center>
   </div>
   <div class="pesquisa">
@@ -71,14 +72,17 @@
     <a href="http:\\calajese.duckdns.org:9009/tt-rss/"><img class="imag" src="logos/favicon-512px.jpg" alt=""></a>
   </div>
   <div class="header1">
-    <a style="color: white;text-decoration: none" type="button" class="addSite" name="" id="" href='addSite.php'><i class="fa fa-plus-circle"></i>&nbspAdicionar site</a>
+
     <center>
       <p class="header1text">Sites Favoritos</p>
     </center>
+    <a style="color: white;text-decoration: none" type="button" class="addSite" name="" id="" href='addSite.php'><i class="fa fa-plus-circle"></i>&nbspAdicionar site</a><br>
+    <br>
     <input type="radio" id="icones" name="visualizacao" value="icones" checked>
     <label for="icones">Ícones</label>
     <input type="radio" id="nomes" name="visualizacao" value="nomes">
     <label for="nomes">Nomes</label>
+    <br>
     <br>
     <div class="sitesrec">
 
@@ -87,7 +91,7 @@
       require_once 'conexao.php';
       $sql = "SELECT nome, urls, img FROM sitesfav;";
       $result = $con->query($sql);
-      $display = "icones";
+      $display = "nomes";
       if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
           if ($display == "icones") {
@@ -95,7 +99,7 @@
         <a style="text-decoration:none;color:black;" href="' . $row['urls'] . '"><img class="" src="' . $row['img'] . '"></a>';
           } else if ($display == "nomes") {
             echo '
-            <a style="text-decoration:none;color:black;" href="' . $row['urls'] . '"> ' . $row['nome'] . '</a>';
+            <a style="text-decoration:none;color:black;" href="' . $row['urls'] . '"> ' . $row['nome'] . ' </a><br><br>';
           }
         }
       }
@@ -104,7 +108,7 @@
     </div>
     <div class="sidebar" id="barralateral">
       <button class="botaofechar" onclick="fecharbarra()">X</button>
-      <p class="titulo"> OPÇÕES </p>
+      <p class="titulo"> OPÇÕES </p><br>
       <ul class="sideopcao">
         <li><img class="ico" onclick="mudarfundo1()" id="img1" src="imgs/1033462.jpg" alt=""></li>
         <li><img class="ico" onclick="mudarfundo0()" id="img1" src="imgs/background3840x2160.jpg" alt=""></li>
