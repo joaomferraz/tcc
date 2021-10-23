@@ -22,7 +22,10 @@
   </center>
   <div class="header1">
     <center>
-      <p class="header1text">Sites Recomendados</p>
+      <p class="header1text">Sites Recomendados</p><br>
+      <label id="colorVal">Select color</label>
+      <input class="clrpckr" style="box-sizing:unset; border-color:transparent; padding:0px; background-color:transparent;" type="color" id="fColor">
+      <button>Alterar cor</button>
     </center>
   </div>
   <div id="myModal" class="modal">
@@ -64,13 +67,14 @@
       </form>
     </div>
   </div>
-  <div class="sitesrec">
-    <a href="https:\\www.youtube.com"><img class="imag" src="logos\Logo_oficial_de_YouTube.jpg" alt="Youtube"></a>
-    <a href="https:\\www.facebook.com"><img class="imag" src="logos\facelogo.jpg" alt=""></a>
-    <a href="https:\\www.twitter.com"><img class="imag" src="logos\twitter.jpg" alt=""></a>
-    <a href="https:\\www.reddit.com"><img class="imag" src="logos\reddit.jpg" alt=""></a>
-    <a href="http:\\calajese.duckdns.org:9009/tt-rss/"><img class="imag" src="logos/favicon-512px.jpg" alt=""></a>
-  </div>
+  <center>
+    <div class="sitesrec">
+      <a href="https:\\www.youtube.com"><img class="imag" src="logos\Logo_oficial_de_YouTube.jpg" alt="Youtube"></a>
+      <a href="https:\\www.facebook.com"><img class="imag" src="logos\facelogo.jpg" alt=""></a>
+      <a href="https:\\www.twitter.com"><img class="imag" src="logos\twitter.jpg" alt=""></a>
+      <a href="https:\\www.reddit.com"><img class="imag" src="logos\reddit.jpg" alt=""></a>
+    </div>
+  </center>
   <div class="header1">
 
     <center>
@@ -84,28 +88,30 @@
     <label for="nomes">Nomes</label>
     <br>
     <br>
-    <div class="sitesrec">
+    <center>
+      <div class="sitesrec">
 
-      <!--Tentando alterar o display-->
-      <?php
-      require_once 'conexao.php';
-      $sql = "SELECT id, nome, urls, img FROM sitesfav;";
-      $result = $con->query($sql);
-      $display = "icones";
-      if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-          if ($display == "icones") {
-            echo '
-        <a style="text-decoration:none;color:black;" href="' . $row['urls'] . '"><img class="" src="' . $row['img'] . '"></a><a style="text-decoration:none;color:red;" href="delete.php?id=' . $row['id'] . '"><i class="fa fa-minus-square">       </i></a>';
-          } else if ($display == "nomes") {
-            echo '
-            <a style="text-decoration:none;color:black;font-size:30px;" href="' . $row['urls'] . '"> ' . $row['nome'] . ' </a><a style="text-decoration:none;color:red;" href="delete.php?id=' . $row['id'] . '"><i class="fa fa-minus-square"></i></a><br><br>';
+        <!--Tentando alterar o display-->
+        <?php
+        require_once 'conexao.php';
+        $sql = "SELECT id, nome, urls, img FROM sitesfav;";
+        $result = $con->query($sql);
+        $display = "nomes";
+        if ($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+            if ($display == "icones") {
+              echo '
+        <a style="text-decoration:none;color:black;" href="' . $row['urls'] . '"><img class="iconS" src="' . $row['img'] . '"></a><a style="text-decoration:none;color:red;" href="delete.php?id=' . $row['id'] . '"><i class="fa fa-minus-square">       </i></a>';
+            } else if ($display == "nomes") {
+              echo '
+            <a class="iconS" style="text-decoration:none;color:black;font-size:30px;" href="' . $row['urls'] . '"> ' . $row['nome'] . ' </a><a style="text-decoration:none;color:red;" href="delete.php?id=' . $row['id'] . '"><i class="fa fa-minus-square">   </i>        </a>';
+            }
           }
         }
-      }
-      $con->close();
-      ?>
-    </div>
+        $con->close();
+        ?>
+      </div>
+    </center>
     <div class="sidebar" id="barralateral">
       <button class="botaofechar" onclick="fecharbarra()">X</button>
       <p class="titulo"> OPÇÕES </p><br>
@@ -114,8 +120,9 @@
         <li><img class="ico" onclick="mudarfundo0()" id="img1" src="imgs/background3840x2160.jpg" alt=""></li>
         <li><img class="ico" onclick="mudarfundo2()" id="img1" src="imgs/anime_bg.jpg" alt=""></li>
         <li><img class="ico" onclick="mudarfundo3()" id="img1" src="imgs/bg_2.jpg" alt=""></li>
-        <li><img class="ico" onclick="mudarfundo4()" id="img1" src="https://i0.wp.com/gamelogia.com.br/wp-content/uploads/2016/11/gamer.jpg?resize=1280%2C640&ssl=1" alt=""></li>
+        <li><img class="ico" onclick="mudarfundo4()" id="img1" src="https://i0.wp.com/gamelogia.com.br/wp-content/uploads/2016/11/gamer.jpg?resize=1280%2C640&ssl=1" alt=""></li><br>
       </ul>
+      <br>
     </div>
     <section class="container1" id="extrarea" onclick="fecharbarra()">
     </section>

@@ -79,3 +79,8 @@ function mudarfundo4() {
   document.getElementById('background').style.backgroundSize = 'cover';
   localStorage.setItem('bckgrndchc', '4');
 }
+var colorInput = document.getElementById('color').value;
+
+colorInput.addEventListener('input', () => {
+  document.getElementById('colorVal').innerHTML = colorInput.value;
+});

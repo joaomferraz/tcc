@@ -37,7 +37,6 @@
 .sitesrec {
   margin-left: auto;
   margin-right: auto;
-  opacity: 0.7;
   height: auto;
   bottom: 1vh;
   width: 90%;
@@ -53,17 +52,24 @@
   max-width: 500px;
   position: relative;
   display: inline-block;
+  opacity: 0.7;
 }
-.sitesrec:hover {
+.imag:hover {
+  opacity: 1;
+}
+.iconS {
+  opacity: 0.7;
+}
+.iconS:hover {
   opacity: 1;
 }
 .botaocad {
-  position: relative;
+  position: fixed;
   left: 92vw;
   top: 0vh;
 }
 .botaoside {
-  position: relative;
+  position: fixed;
   left: 1vw;
   top: 1vh;
   border-radius: 33px;
@@ -122,6 +128,7 @@
 
 .addSite {
   float: left;
+  text-shadow: 1px 1px 1px #000000;
 }
 
 .content {
