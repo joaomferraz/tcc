@@ -31,8 +31,11 @@
 }
 .header1text {
   font-family: arial;
-  color: #ffffff;
+  /*color: #ffffff;*/
   font-size: 35px;
+}
+.toChngClr {
+  color: #ffffff;
 }
 .sitesrec {
   margin-left: auto;
@@ -121,6 +124,16 @@
   height: 50px;
   transition: 0.5s;
   padding-right: 3px;
+}
+.sidebar .clrSlctr {
+  position: absolute;
+  right: 50%;
+  top: 30%;
+  transition: 0.5s;
+}
+.sidebar .clrSlctrTxt {
+  font-weight: bolder;
+  font-size: larger;
 }
 .teste {
   float: left;

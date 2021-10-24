@@ -6,7 +6,7 @@
   <title>HubEx</title>
   <link rel="stylesheet" type="text/css" href="cssex.css">
   <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
-  <script src="java.js"></script>
+  <!--<script src="java.js"></script>-->
 </head>
 
 <body id="background" onload='fundoinicial()'>
@@ -22,10 +22,7 @@
   </center>
   <div class="header1">
     <center>
-      <p class="header1text">Sites Recomendados</p><br>
-      <label id="colorVal">Select color</label>
-      <input class="clrpckr" style="box-sizing:unset; border-color:transparent; padding:0px; background-color:transparent;" type="color" id="fColor">
-      <button>Alterar cor</button>
+      <p class="header1text toChngClr">Sites Recomendados</p><br>
     </center>
   </div>
   <div id="myModal" class="modal">
@@ -78,19 +75,18 @@
   <div class="header1">
 
     <center>
-      <p class="header1text">Sites Favoritos</p>
+      <p class="header1text toChngClr">Sites Favoritos</p>
     </center>
-    <a style="color: white;text-decoration: none" type="button" class="addSite" name="" id="" href='addSite.php'><i class="fa fa-plus-circle"></i>&nbspAdicionar site</a><br>
+    <a style="text-decoration: none" type="button" class="addSite toChngClr" name="" href='addSite.php'><i class="fa fa-plus-circle"></i>&nbspAdicionar site</a><br>
     <br>
     <input type="radio" id="icones" name="visualizacao" value="icones" checked>
-    <label for="icones">Ícones</label>
+    <label class="toChngClr" for="icones">Ícones</label>
     <input type="radio" id="nomes" name="visualizacao" value="nomes">
-    <label for="nomes">Nomes</label>
+    <label class="toChngClr" for="nomes">Nomes</label>
     <br>
     <br>
     <center>
       <div class="sitesrec">
-
         <!--Tentando alterar o display-->
         <?php
         require_once 'conexao.php';
@@ -104,7 +100,7 @@
         <a style="text-decoration:none;color:black;" href="' . $row['urls'] . '"><img class="iconS" src="' . $row['img'] . '"></a><a style="text-decoration:none;color:red;" href="delete.php?id=' . $row['id'] . '"><i class="fa fa-minus-square">       </i></a>';
             } else if ($display == "nomes") {
               echo '
-            <a class="iconS" style="text-decoration:none;color:black;font-size:30px;" href="' . $row['urls'] . '"> ' . $row['nome'] . ' </a><a style="text-decoration:none;color:red;" href="delete.php?id=' . $row['id'] . '"><i class="fa fa-minus-square">   </i>        </a>';
+            <a class="iconS toChngClr" style="text-decoration:none;color:;font-size:30px;" href="' . $row['urls'] . '"> ' . $row['nome'] . ' </a><a style="text-decoration:none;color:red;padding-right:20px;" href="delete.php?id=' . $row['id'] . '"><i class="fa fa-minus-square">   </i></a>';
             }
           }
         }
@@ -116,13 +112,19 @@
       <button class="botaofechar" onclick="fecharbarra()">X</button>
       <p class="titulo"> OPÇÕES </p><br>
       <ul class="sideopcao">
-        <li><img class="ico" onclick="mudarfundo1()" id="img1" src="imgs/1033462.jpg" alt=""></li>
         <li><img class="ico" onclick="mudarfundo0()" id="img1" src="imgs/background3840x2160.jpg" alt=""></li>
+        <li><img class="ico" onclick="mudarfundo1()" id="img1" src="imgs/1033462.jpg" alt=""></li>
         <li><img class="ico" onclick="mudarfundo2()" id="img1" src="imgs/anime_bg.jpg" alt=""></li>
         <li><img class="ico" onclick="mudarfundo3()" id="img1" src="imgs/bg_2.jpg" alt=""></li>
         <li><img class="ico" onclick="mudarfundo4()" id="img1" src="https://i0.wp.com/gamelogia.com.br/wp-content/uploads/2016/11/gamer.jpg?resize=1280%2C640&ssl=1" alt=""></li><br>
       </ul>
       <br>
+      <center>
+        <div class="clrSlctr">
+          <label for="fColor" class="clrSlcrtTxt toChngClr">Mudar cor da fonte</label><br>
+          <input class="" style="box-sizing:unset; border:none; border-color:transparent; padding:0px; background-color:transparent;height:100px;width:100px;" type="color" id="fColor">
+        </div>
+      </center>
     </div>
     <section class="container1" id="extrarea" onclick="fecharbarra()">
     </section>

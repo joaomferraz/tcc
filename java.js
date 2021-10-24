@@ -1,3 +1,10 @@
+var input = document.getElementById('fColor');
+input.addEventListener('change', function () {
+  var txtToChngClr = document.getElementsByClassName('toChngClr');
+  for (var i = 0; i < txtToChngClr.length; i++) {
+    txtToChngClr[i].style.color = this.value;
+  }
+});
 var modal = document.getElementById('myModal');
 var btn = document.getElementById('myBtn');
 var span = document.getElementsByClassName('close')[0];
@@ -79,8 +86,3 @@ function mudarfundo4() {
   document.getElementById('background').style.backgroundSize = 'cover';
   localStorage.setItem('bckgrndchc', '4');
 }
-var colorInput = document.getElementById('color').value;
-
-colorInput.addEventListener('input', () => {
-  document.getElementById('colorVal').innerHTML = colorInput.value;
-});
