@@ -9,7 +9,7 @@
   <!--<script src="java.js"></script>-->
 </head>
 
-<body id="background" onload='fundoinicial()'>
+<body id="background" onload='autorun()'>
   <div class="sidecont">
 
     <button class="botaoside" onclick="abrirbarra()">
@@ -95,7 +95,7 @@
         $display = "nomes";
         if ($result->num_rows > 0) {
           while ($row = $result->fetch_assoc()) {
-            if ($display == "icones") {
+            if ($display == "nomes") {
               echo '
         <a style="text-decoration:none;color:black;" href="' . $row['urls'] . '"><img class="iconS" src="' . $row['img'] . '"></a><a style="text-decoration:none;color:red;" href="delete.php?id=' . $row['id'] . '"><i class="fa fa-minus-square">       </i></a>';
             } else if ($display == "nomes") {

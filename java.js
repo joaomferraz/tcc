@@ -1,10 +1,21 @@
 var input = document.getElementById('fColor');
 input.addEventListener('change', function () {
+  var corTexto = input.value;
   var txtToChngClr = document.getElementsByClassName('toChngClr');
   for (var i = 0; i < txtToChngClr.length; i++) {
-    txtToChngClr[i].style.color = this.value;
+    txtToChngClr[i].style.color = corTexto;
+    localStorage.setItem('textcolor', corTexto);
   }
 });
+
+function corfuncao() {
+  var txtToChngClr = document.getElementsByClassName('toChngClr');
+  for (var i = 0; i < txtToChngClr.length; i++) {
+    var cor = localStorage.getItem('textcolor');
+    txtToChngClr[i].style.color = cor;
+  }
+}
+
 var modal = document.getElementById('myModal');
 var btn = document.getElementById('myBtn');
 var span = document.getElementsByClassName('close')[0];
@@ -85,4 +96,9 @@ function mudarfundo4() {
   document.getElementById('background').style.transition = '0.7s';
   document.getElementById('background').style.backgroundSize = 'cover';
   localStorage.setItem('bckgrndchc', '4');
+}
+
+function autorun() {
+  fundoinicial();
+  corfuncao();
 }
